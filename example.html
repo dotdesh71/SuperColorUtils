@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SuperColorUtils Example</title>
+  <script src="colorUtils.js"></script>
+</head>
+<body>
+
+  <h1>SuperColorUtils Example</h1>
+
+  <div id="colorInfo">
+    <h2>Color Information</h2>
+    <p id="originalColor"></p>
+    <p id="rgbColor"></p>
+    <p id="darkenedColor"></p>
+    <p id="lightenedColor"></p>
+  </div>
+
+  <div id="colorManipulation">
+    <h2>Color Manipulation</h2>
+    <button onclick="darkenColor()">Darken Color</button>
+    <button onclick="lightenColor()">Lighten Color</button>
+  </div>
+
+  <script>
+    // Example usage:
+    var hexColor = '#3498db';
+
+    // Display original color information
+    document.getElementById('originalColor').innerText = 'Original Color: ' + hexColor;
+
+    // Convert HEX to RGB
+    var rgbColor = SuperColorUtils.hexToRgb(hexColor);
+    document.getElementById('rgbColor').innerText = 'RGB Color: ' + JSON.stringify(rgbColor);
+
+    function darkenColor() {
+      // Darken the color by 20%
+      var darkenedHexColor = SuperColorUtils.darkenHexColor(hexColor, 20);
+      document.getElementById('darkenedColor').innerText = 'Darkened Color (20%): ' + darkenedHexColor;
+    }
+
+    function lightenColor() {
+      // Lighten the color by 30%
+      var lightenedHexColor = SuperColorUtils.lightenHexColor(hexColor, 30);
+      document.getElementById('lightenedColor').innerText = 'Lightened Color (30%): ' + lightenedHexColor;
+    }
+  </script>
+
+</body>
+</html>
